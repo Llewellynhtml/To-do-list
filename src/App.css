@@ -1,38 +1,316 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
+    text-align: center;
+  }
+  
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    height: 40vmin;
+    pointer-events: none;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
   }
-  to {
-    transform: rotate(360deg);
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
   }
-}
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {}
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+
+    .home-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 50vh;
+      background-color: #f8f9fa;
+    }
+    
+    .home-content {
+      text-align: center;
+    }
+    
+    .home-para {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      max-width: 600px;
+    }
+    
+    .home-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+    
+    .home-button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .home-button:hover {
+      background-color: #0056b3;
+    }
+    
+
+    .registration-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 50vh;
+      background-color: #f8f9fa;
+    }
+    
+    .registration-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    
+    .registration-form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 400px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .registration-input {
+      padding: 10px;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .registration-button {
+      padding: 10px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #28a745;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .registration-button:hover {
+      background-color: #218838;
+    }
+
+    .todolist-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 50px;
+    }
+    
+    .todolist-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+    
+    .todolist-title {
+      font-size: 2rem;
+    }
+    
+    .logout-button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #dc3545;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .logout-button:hover {
+      background-color: #c82333;
+    }
+    
+    .todolist-form {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .todolist-input {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 200px;
+    }
+    
+    .todolist-select {
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .todolist-button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #28a745;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .todolist-button:hover {
+      background-color: #218838;
+    }
+    
+    .todolist-list {
+      list-style-type: none;
+      padding: 0;
+      width: 100%;
+      max-width: 400px;
+    }
+    
+    .todolist-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      color: #fff;
+    }
+    
+    .task-low {
+      background-color: #28a745;
+    }
+    
+    .task-medium {
+      background-color: #ffc107;
+    }
+    
+    .task-high {
+      background-color: #dc3545;
+    }
+    
+    .todolist-buttons {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .todolist-edit-button,
+    .todolist-delete-button {
+      padding: 5px 10px;
+      font-size: 0.9rem;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .todolist-edit-button {
+      background-color: #007bff;
+    }
+    
+    .todolist-edit-button:hover {
+      background-color: #0056b3;
+    }
+    
+    .todolist-delete-button {
+      background-color: #dc3545;
+    }
+    
+    .todolist-delete-button:hover {
+      background-color: #c82333;
+    }
+    
+    .login-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 40vh;
+      background-color: #f4f4f4;
+    }
+    
+    .login-form {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    
+    .login-form h3 {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      color: #333;
+    }
+    
+    .login-form input {
+      width: calc(100% - 20px);
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    
+    .login-form input:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+    
+    .login-form button {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.1rem;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .login-form button:hover {
+      background-color: #0056b3;
+    }
+    
+    
+    
