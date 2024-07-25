@@ -1,30 +1,29 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
-import Login from './components/Login';
+import React, { useState } from 'react';
 import Registration from './components/Registration';
-import TodoList from './components/ToDoList';
-import Logo from './Checkmate.Logo.svg.png';
+import Login from './components/Login';
+import ToDoList from './components/ToDoList';
 import './App.css';
 
-function App() {
+
+const App = () => {
+  const [currentView, setCurrentView] = useState('register');
+
+  const handleViewChange = (view) => {
+    setCurrentView(view);
+  };
+
   return (
-    <Router>
-      <div className='app-container'>
-        <img src={Logo} alt='Checkmate Logo' className='app-logo' />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/registration" element={<Registration />} />
-          <Route path="/todolist" element={<TodoList />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="app-container">
+      <nav>
+        <button onClick={() => handleViewChange('register')}>Register</button>
+        <button onClick={() => handleViewChange('login')}>Login</button>
+        <button onClick={() => handleViewChange('tasks')}>Tasks</button>
+      </nav>
+      {currentView === 'register' && <Registration />}
+      {currentView === 'login' && <Login />}
+      {currentView === 'tasks' && <ToDoList />}
+    </div>
   );
-}
+};
 
 export default App;
-
-
-
-

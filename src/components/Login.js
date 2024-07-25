@@ -1,40 +1,42 @@
-import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import axios from 'axios';
 
-function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle login logic here
-    navigate('/todolist');
-  }
+const Login = () => {
+  // User management states
+  const [userId, setUserId] = useState('');
+  const [user, setUser] = useState(null);
+
+  const fetchUser = async (id) => {
+    try {
+      const response = await axios.get(`http://localhost:3001/users/${id}`);
+      setUser(response.data);
+    } catch (error) {
+      console.error('Error fetching user:', error);
+      setUser(null);
+    }
+  };
 
   return (
-    <div className="login-container">
-      <h3 className="login-title">Login</h3>
-      <form className="login-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          className="login-input"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="login-input"
-        />
-        <button type="submit" className="login-button">Login</button>
-      </form>
+    <div className="app-container">
+      <h2>Get User by ID</h2>
+      <input
+        type="number"
+        placeholder="User ID"
+        value={userId}
+        onChange={(e) => setUserId(e.target.value)}
+      />
+      <button onClick={() => fetchUser(userId)}>Fetch User</button>
+      {user && (
+        <div className="user-details">
+          <h3>User Details</h3>
+          <p>ID: {user.id}</p>
+          <p>Username: {user.username}</p>
+          <p>Email: {user.email}</p>
+        </div>
+      )}
     </div>
   );
-}
+};
 
 export default Login;
-
