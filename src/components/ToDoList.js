@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-
 const ToDoList = () => {
   // Task management states
   const [tasks, setTasks] = useState([]);
@@ -31,8 +30,16 @@ const ToDoList = () => {
   };
 
   const addTask = async () => {
+    console.log('Adding task:', { name: taskName, age: taskAge, work: taskWork, priority: taskPriority, due_date: taskDueDate });
     try {
-      await axios.post('http://localhost:3001/tasks', { name: taskName, age: taskAge, work: taskWork, priority: taskPriority, due_date: taskDueDate });
+      const response = await axios.post('http://localhost:3001/tasks', {
+        name: taskName,
+        age: taskAge,
+        work: taskWork,
+        priority: taskPriority,
+        due_date: taskDueDate
+      });
+      console.log('Task added successfully:', response.data);
       setTaskName('');
       setTaskAge('');
       setTaskWork('');
@@ -46,7 +53,13 @@ const ToDoList = () => {
 
   const updateTask = async (id) => {
     try {
-      await axios.put(`http://localhost:3001/tasks/${id}`, { name: editTaskName, age: editTaskAge, work: editTaskWork, priority: editTaskPriority, due_date: editTaskDueDate });
+      await axios.put(`http://localhost:3001/tasks/${id}`, {
+        name: editTaskName,
+        age: editTaskAge,
+        work: editTaskWork,
+        priority: editTaskPriority,
+        due_date: editTaskDueDate
+      });
       setEditTaskId(null);
       setEditTaskName('');
       setEditTaskAge('');

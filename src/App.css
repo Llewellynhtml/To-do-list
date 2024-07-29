@@ -483,3 +483,8 @@ li button.edit:hover {
 li button.delete:hover {
   background-color: #c82333;
 }
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
